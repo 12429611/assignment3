@@ -103,7 +103,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(4f);
         Destroy(go);
         SetGameState(true);
-        Invoke("CreateSuperPacdot", 3f);
         gamePanel.SetActive(true);
         GetComponent<AudioSource>().Play();
     }
@@ -113,57 +112,6 @@ public class GameManager : MonoBehaviour
         nowEat++;
         score += 100;
         pacdotGos.Remove(go);
-    }
-
-    public void OnEatSuperPacdot()
-    {
-        score += 200;
-        Invoke("CreateSuperPacdot", 3f);
-        isSuperPacman = true;
-        FreezeEnemy();
-        StartCoroutine(RecoveryEnemy());
-    }
-
-    IEnumerator RecoveryEnemy()
-    {
-        yield return new WaitForSeconds(3f);
-        DisFreezeEnemy();
-        isSuperPacman = false;
-    }
-
-    private void CreateSuperPacdot()
-    {
-        if (pacdotGos.Count < 5)
-        {
-            return;
-        }
-        int tempIndex = Random.Range(0, pacdotGos.Count);
-        pacdotGos[tempIndex].transform.localScale = new Vector3(6, 6, 6);
-        pacdotGos[tempIndex].GetComponent<Pacdot>().isSuperPacdot = true;
-    }
-
-    private void FreezeEnemy()
-    {
-        blinky.GetComponent<GhostMove>().enabled = false;
-        clyde.GetComponent<GhostMove>().enabled = false;
-        inky.GetComponent<GhostMove>().enabled = false;
-        pinky.GetComponent<GhostMove>().enabled = false;
-        blinky.GetComponent<SpriteRenderer>().color = new Color(0.7f, 0.7f, 0.7f, 0.7f);
-        clyde.GetComponent<SpriteRenderer>().color = new Color(0.7f, 0.7f, 0.7f, 0.7f);
-        inky.GetComponent<SpriteRenderer>().color = new Color(0.7f, 0.7f, 0.7f, 0.7f);
-        pinky.GetComponent<SpriteRenderer>().color = new Color(0.7f, 0.7f, 0.7f, 0.7f);
-    }
-
-    private void DisFreezeEnemy()
-    {
-        blinky.GetComponent<GhostMove>().enabled = true;
-        clyde.GetComponent<GhostMove>().enabled = true;
-        inky.GetComponent<GhostMove>().enabled = true;
-        pinky.GetComponent<GhostMove>().enabled = true;
-        blinky.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-        clyde.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-        inky.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-        pinky.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
     }
 
     private void SetGameState(bool state)
