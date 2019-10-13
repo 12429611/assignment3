@@ -94,7 +94,8 @@ public class GameManager1 : MonoBehaviour
 
     public void OnExitButton()
     {
-        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
+
     }
 
     IEnumerator PlayStartCountDown()

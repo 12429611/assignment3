@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa4135474aca1a4297fb87b5195f27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.8
+  speed: 0.3
 --- !u!1 &110873726
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,7 +652,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.3
 --- !u!114 &200418960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +670,7 @@ MonoBehaviour:
   - {fileID: 1050364860203518, guid: 7bcef091a7f9c984899b10183e7db308, type: 3}
   - {fileID: 1331094407974444, guid: 86e3da04e3e07374c816e23afbae82c7, type: 3}
   - {fileID: 1171331548929178, guid: d41f82c3d3fddb74dbf3496c5edf8633, type: 3}
-  speed: 0.2
+  speed: 0.05
 --- !u!1 &219607245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,7 +1351,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.3
 --- !u!114 &872231182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1369,7 +1369,7 @@ MonoBehaviour:
   - {fileID: 1050364860203518, guid: 7bcef091a7f9c984899b10183e7db308, type: 3}
   - {fileID: 1331094407974444, guid: 86e3da04e3e07374c816e23afbae82c7, type: 3}
   - {fileID: 1171331548929178, guid: d41f82c3d3fddb74dbf3496c5edf8633, type: 3}
-  speed: 0.2
+  speed: 0.05
 --- !u!1 &903576982
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,7 +2368,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.3
 --- !u!114 &1340784182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2386,7 +2386,7 @@ MonoBehaviour:
   - {fileID: 1050364860203518, guid: 7bcef091a7f9c984899b10183e7db308, type: 3}
   - {fileID: 1331094407974444, guid: 86e3da04e3e07374c816e23afbae82c7, type: 3}
   - {fileID: 1171331548929178, guid: d41f82c3d3fddb74dbf3496c5edf8633, type: 3}
-  speed: 0.2
+  speed: 0.05
 --- !u!1 &1662305452
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,7 +2563,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.3
 --- !u!114 &1750967534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2581,7 +2581,7 @@ MonoBehaviour:
   - {fileID: 1050364860203518, guid: 7bcef091a7f9c984899b10183e7db308, type: 3}
   - {fileID: 1331094407974444, guid: 86e3da04e3e07374c816e23afbae82c7, type: 3}
   - {fileID: 1171331548929178, guid: d41f82c3d3fddb74dbf3496c5edf8633, type: 3}
-  speed: 0.2
+  speed: 0.05
 --- !u!1 &1836823675
 GameObject:
   m_ObjectHideFlags: 0
