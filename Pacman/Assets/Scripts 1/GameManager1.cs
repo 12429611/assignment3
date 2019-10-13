@@ -41,14 +41,17 @@ public class GameManager1 : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        //Screen set resolution
         Screen.SetResolution(1024, 768, false);
         int tempCount = rawIndex.Count;
+        //Each ghost will go random waypoints.
         for (int i = 0; i < tempCount; i++)
         {
             int tempIndex = Random.Range(0, rawIndex.Count);
             usingIndex.Add(rawIndex[tempIndex]);
             rawIndex.RemoveAt(tempIndex);
         }
+        //find all pacdots
         foreach (Transform t in GameObject.Find("Maze1").transform)
         {
             pacdotGos.Add(t.gameObject);
@@ -63,6 +66,7 @@ public class GameManager1 : MonoBehaviour
 
     private void Update()
     {
+        //will win if eat all pacdot
         if (nowEat == pacdotNum && pacman.GetComponent<PacmanMove1>().enabled != false)
         {
             gamePanel.SetActive(false);
@@ -74,24 +78,26 @@ public class GameManager1 : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
+                //load new scene
                 SceneManager.LoadScene(0);
             }
         }
         if (gamePanel.activeInHierarchy)
         {
+            //record scores
             remainText.text = "Remain:\n\n" + (pacdotNum - nowEat);
             nowText.text = "Eaten:\n\n" + nowEat;
             scoreText.text = "Score:\n\n" + score;
         }
     }
-
+    //set Start Button
     public void OnStartButton()
     {
         StartCoroutine(PlayStartCountDown());
         AudioSource.PlayClipAtPoint(startClip, new Vector3(0, 0, -5));
         startPanel.SetActive(false);
     }
-
+    //set Exit Button
     public void OnExitButton()
     {
         UnityEditor.EditorApplication.isPlaying = false;
@@ -108,14 +114,14 @@ public class GameManager1 : MonoBehaviour
         gamePanel.SetActive(true);
         GetComponent<AudioSource>().Play();
     }
-
+    //eat pacdot will add score
     public void OnEatPacdot(GameObject go)
     {
         nowEat++;
         score += 100;
         pacdotGos.Remove(go);
     }
-
+    //eat super pacdot, will change superpacman and create super pacdot after 3 second, and freeze enemy.
     public void OnEatSuperPacdot()
     {
         score += 200;
@@ -127,13 +133,15 @@ public class GameManager1 : MonoBehaviour
 
     IEnumerator RecoveryEnemy()
     {
+        //disfreez enemy after 3s
         yield return new WaitForSeconds(3f);
         DisFreezeEnemy();
         isSuperPacman = false;
     }
-
+    //create super pacdot
     private void CreateSuperPacdot()
     {
+        //can not create super pacdot anymore if less 5 pacdots
         if (pacdotGos.Count < 5)
         {
             return;
@@ -142,7 +150,7 @@ public class GameManager1 : MonoBehaviour
         pacdotGos[tempIndex].transform.localScale = new Vector3(6, 6, 6);
         pacdotGos[tempIndex].GetComponent<Pacdot1>().isSuperPacdot = true;
     }
-
+    //if eat super pacdot, will freeze enemy and change enemy color
     private void FreezeEnemy()
     {
         blinky.GetComponent<GhostMove1>().enabled = false;
@@ -154,7 +162,7 @@ public class GameManager1 : MonoBehaviour
         inky.GetComponent<SpriteRenderer>().color = new Color(0.7f, 0.7f, 0.7f, 0.7f);
         pinky.GetComponent<SpriteRenderer>().color = new Color(0.7f, 0.7f, 0.7f, 0.7f);
     }
-
+    //disfreeze enemy
     private void DisFreezeEnemy()
     {
         blinky.GetComponent<GhostMove1>().enabled = true;

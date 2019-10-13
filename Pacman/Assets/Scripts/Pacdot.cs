@@ -2,7 +2,7 @@
 
 public class Pacdot : MonoBehaviour
 {
-
+    //destory Pacdots
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Pacman")
